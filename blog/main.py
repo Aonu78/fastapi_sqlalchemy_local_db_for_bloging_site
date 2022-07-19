@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from fastapi import FastAPI
 import schemas, models
 from database import SessionLocal, engine
+import uvicorn
 app = FastAPI()
 
 models.Base.metadata.create_all(engine) 
@@ -57,3 +58,6 @@ def update(id,request:schemas.Blog,db:Session=Depends(get_db)):
     blog.update(request)
     db.commit()
     return {'updated'}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=5000, log_level="info")
