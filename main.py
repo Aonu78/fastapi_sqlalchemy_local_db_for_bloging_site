@@ -35,5 +35,5 @@ class Blog(BaseModel):
 def creat_blog(request:Blog):
     return {f'bloger was created with user title {request.title}'}
 
-# if __name__ == "__main__":
-#     uvicorn.run("main:app", host="0.0.0.0", port=5000, log_level="info")
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=5000, log_level="info")
